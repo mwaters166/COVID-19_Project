@@ -11,3 +11,6 @@ Michele Waters
 https://raw.githubusercontent.com/mwaters166/COVID-19_Project/master/streamlit-COVID19_app-2020-03-23-23-03-06.webm.mp4?token=AIWDJKL2C2DUY7R6Z4XKP5K6QK5RM
 
 * Created in python 3, run in https://www.streamlit.io/
+
+* To run the project (after downloading project folder and installing streamlit), navigate to the project folder within terminal and use the command: 
+    streamlit run COVID19_app.py
