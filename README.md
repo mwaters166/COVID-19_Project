@@ -14,3 +14,5 @@ https://raw.githubusercontent.com/mwaters166/COVID-19_Project/master/streamlit-C
 
 * To run the project (after downloading project folder and installing streamlit), navigate to the project folder within terminal and use the command: 
     streamlit run COVID19_app.py
+    
+* Note: JHU is currently updating their data set, so the second part of this project (containing the US state data) will be updated once the state data has been returned/redirected to a new repository. -MW, 3/26/2020
