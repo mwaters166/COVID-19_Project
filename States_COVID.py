@@ -3,7 +3,7 @@ import pandas as pd
 import requests
 import datetime as dt
 import plotly.express as px
-import sqlite3
+#import sqlite3
 
 #Streamlit Heading
 st.title("US COVID-19 Data Explorer")
@@ -32,16 +32,16 @@ state_daily_fips=[state_abbrev_dict[state][1] for state in states_daily_df['stat
 states_daily_df['state_name']=state_daily_names
 states_daily_df['fips']=state_daily_fips
 
-#Add states_daily_df to databas as states_daily
-conn=sqlite3.connect('covid19.db')
-cursor= conn.cursor()
-states_daily_df.to_sql('states_daily', conn, index_label='id', if_exists='replace')
+# #Add states_daily_df to database as states_daily
+# conn=sqlite3.connect('covid19.db')
+# cursor= conn.cursor()
+# states_daily_df.to_sql('states_daily', conn, index_label='id', if_exists='replace')
 
-#Create function to query SQL data
-def query_data(sql_statement):
-    df=pd.read_sql(sql_statement, conn)
-    #cursor.execute(sql_statement)
-    return df.to_dict('records')
+# #Create function to query SQL data
+# def query_data(sql_statement):
+#     df=pd.read_sql(sql_statement, conn)
+#     #cursor.execute(sql_statement)
+#     return df.to_dict('records')
 
 #Select dataset type, i.e. positive tests, negative tests, deaths, etc.
 st.subheader('Select COVID-19 dataset:')
