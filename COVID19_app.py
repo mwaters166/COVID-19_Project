@@ -128,6 +128,13 @@ date_formatted=dt.datetime.strftime(datetime_list[date_slider], '%m/%d/%Y') #for
 st.write(f"Global COVID-19 {dataset_type} cases as of date: ", date_formatted) #display formatted date
 st.plotly_chart(generate_map(df)) #plot on map
 
+#Prints the relevant dataframe in streamlit
+st.subheader(f"Top 10 countries for {dataset_type} cases as of date: {date_formatted}")
+df2=df[['country', 'count']] #gets user-defined dataframe
+df2=df2.sort_values(by='count', ascending=False) #sorts dataframe by parameter, e.g. positive test
+df2=df2.reset_index(drop=True)[:10] #gets top 10 
+st.table(df2) #prints table
+
 ''' 
 Note: the subsequent code was written based on formatting of archived JHU data sets, which originally contained US
 state data. The archived data can be found at the following link:
