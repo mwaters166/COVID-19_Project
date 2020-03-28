@@ -128,57 +128,63 @@ date_formatted=dt.datetime.strftime(datetime_list[date_slider], '%m/%d/%Y') #for
 st.write(f"Global COVID-19 {dataset_type} cases as of date: ", date_formatted) #display formatted date
 st.plotly_chart(generate_map(df)) #plot on map
 
-#Select state data
-st.subheader('Explore data by US state over time')
-states_url = "https://secure.ssa.gov/apps10/poms.nsf/lnx/0901501010"
-state_dfs = pd.read_html(states_url, header=0)[0]
-state_dfs.to_sql('states', conn, index_label='id', if_exists='replace') #create table of state abbreviations
+''' 
+Note: the subsequent code was written based on formatting of archived JHU data sets, which originally contained US
+state data. The archived data can be found at the following link:
+https://github.com/CSSEGISandData/COVID-19/tree/master/archived_data/archived_time_series.
+'''
 
-#Function to return US data by state (aggregated) or by county for each state
-def find_data_by_US_state():
-    records=query_data('''SELECT SUM(confirmed_count) as count, covid_date_T.state, states."Territory Abbreviation" as st_abbrev, country, date FROM covid_date_T
-                      LEFT JOIN states ON covid_date_T.state=states.State
-                      GROUP BY covid_date_T.state, date
-                      HAVING country=="US"''')
-    state_data=[]
-    state_data+=[record for record in records if "," not in record['state']]
-    return state_data
-US_state_df=pd.DataFrame(find_data_by_US_state())
+# #Select state data
+# st.subheader('Explore data by US state over time')
+# states_url = "https://secure.ssa.gov/apps10/poms.nsf/lnx/0901501010"
+# state_dfs = pd.read_html(states_url, header=0)[0]
+# state_dfs.to_sql('states', conn, index_label='id', if_exists='replace') #create table of state abbreviations
 
-#Plot US state time series
-unique_states=sorted(list(set((US_state_df['state']))))
-def plot_state_time_series():
-    st.write('Select multiple states to compare')
-    selected_states=st.multiselect('State', unique_states, default=['Diamond Princess','New York', 'California', 'Washington'])
-    df=US_state_df.loc[US_state_df['state'].isin(selected_states)]
-    multi_plot = st.checkbox('Plot states on one graph', key='multi_state', value=True)
-    indiv_plot = st.checkbox('Plot states on separate graphs', key='indiv_state')
-    state_names='; '.join(selected_states)
-    if indiv_plot:
-        st.write(f'Number of COVID-19 {dataset_type} cases over time: {state_names}')
-        fig = px.line(df, x="date", y="count", color="state", facet_col="state", facet_col_wrap=3)
-        #fig.layout.yaxis3.update(matches=None)
-        return fig
-    elif multi_plot:
-        st.write(f'Number of COVID-19 {dataset_type} cases over time: {state_names}')
-        fig = px.line(df, x="date", y="count", color="state")
-        #fig.layout.yaxis.update(matches=None)
-        return fig
+# #Function to return US data by state (aggregated) or by county for each state
+# def find_data_by_US_state():
+#     records=query_data('''SELECT SUM(confirmed_count) as count, covid_date_T.state, states."Territory Abbreviation" as st_abbrev, country, date FROM covid_date_T
+#                       LEFT JOIN states ON covid_date_T.state=states.State
+#                       GROUP BY covid_date_T.state, date
+#                       HAVING country=="US"''')
+#     state_data=[]
+#     state_data+=[record for record in records if "," not in record['state']]
+#     return state_data
+# US_state_df=pd.DataFrame(find_data_by_US_state())
+
+# #Plot US state time series
+# unique_states=sorted(list(set((US_state_df['state']))))
+# def plot_state_time_series():
+#     st.write('Select multiple states to compare')
+#     selected_states=st.multiselect('State', unique_states, default=['Diamond Princess','New York', 'California', 'Washington'])
+#     df=US_state_df.loc[US_state_df['state'].isin(selected_states)]
+#     multi_plot = st.checkbox('Plot states on one graph', key='multi_state', value=True)
+#     indiv_plot = st.checkbox('Plot states on separate graphs', key='indiv_state')
+#     state_names='; '.join(selected_states)
+#     if indiv_plot:
+#         st.write(f'Number of COVID-19 {dataset_type} cases over time: {state_names}')
+#         fig = px.line(df, x="date", y="count", color="state", facet_col="state", facet_col_wrap=3)
+#         #fig.layout.yaxis3.update(matches=None)
+#         return fig
+#     elif multi_plot:
+#         st.write(f'Number of COVID-19 {dataset_type} cases over time: {state_names}')
+#         fig = px.line(df, x="date", y="count", color="state")
+#         #fig.layout.yaxis.update(matches=None)
+#         return fig
        
-st.plotly_chart(plot_state_time_series())
+# st.plotly_chart(plot_state_time_series())
 
-#Plot COVID-19 cases by US state on a heat map
-st.subheader('Explore data by US state geographically')
-def generate_US_map(date='2020-03-19 00:00:00'):
-    df=US_state_df[US_state_df['date']==date]
-    fig = px.choropleth(locations=df['st_abbrev'], 
-                        locationmode="USA-states", color=df['count'],                 scope="usa",color_continuous_scale=px.colors.sequential.Plasma,range_color=change_range_color(3000))
-    return fig
-date_list2=list(sorted(set(country_iso_df['date'])))[47:] #list of dates
-days_index2=len(list(date_list2))-1 #length of dates list
-datetime_list2=[dt.datetime.strptime(date, '%Y-%m-%d %H:%M:%S') for date in date_list2]
-date_slider2 = st.slider(f'Use the Date-Slider to see the number of US COVID-19 {dataset_type} cases over time (hover over state to see actual values):', 0, days_index2, days_index2, format="%d days since 3/09/20", key='time_US')
-date_formatted2=dt.datetime.strftime(datetime_list2[date_slider2], '%m/%d/%Y')
-st.write(f"US COVID-19 {dataset_type} cases as of date: ", date_formatted2)
-st.plotly_chart(generate_US_map(date_list2[date_slider2]))
+# #Plot COVID-19 cases by US state on a heat map
+# st.subheader('Explore data by US state geographically')
+# def generate_US_map(date='2020-03-19 00:00:00'):
+#     df=US_state_df[US_state_df['date']==date]
+#     fig = px.choropleth(locations=df['st_abbrev'], 
+#                         locationmode="USA-states", color=df['count'],                 scope="usa",color_continuous_scale=px.colors.sequential.Plasma,range_color=change_range_color(3000))
+#     return fig
+# date_list2=list(sorted(set(country_iso_df['date'])))[47:] #list of dates
+# days_index2=len(list(date_list2))-1 #length of dates list
+# datetime_list2=[dt.datetime.strptime(date, '%Y-%m-%d %H:%M:%S') for date in date_list2]
+# date_slider2 = st.slider(f'Use the Date-Slider to see the number of US COVID-19 {dataset_type} cases over time (hover over state to see actual values):', 0, days_index2, days_index2, format="%d days since 3/09/20", key='time_US')
+# date_formatted2=dt.datetime.strftime(datetime_list2[date_slider2], '%m/%d/%Y')
+# st.write(f"US COVID-19 {dataset_type} cases as of date: ", date_formatted2)
+# st.plotly_chart(generate_US_map(date_list2[date_slider2]))
 
