@@ -1,3 +1,5 @@
+#COVID-19 Global Data Explorer
+
 #Import modules
 import streamlit as st
 import pandas as pd
@@ -131,15 +133,15 @@ st.plotly_chart(generate_map(df)) #plot on map
 #Prints the relevant dataframe in streamlit
 st.subheader(f"Top 10 countries for {dataset_type} cases as of date: {date_formatted}")
 df2=df[['country', 'count']] #gets user-defined dataframe
-df2=df2.sort_values(by='count', ascending=False) #sorts dataframe by parameter, e.g. positive test
-df2=df2.reset_index(drop=True)[:10] #gets top 10 
+df2=df2.sort_values(by='count', ascending=False)[:10] #sorts dataframe by parameter, e.g. positive test and gets top 10
+df2.index=pd.RangeIndex(1,11)
 st.table(df2) #prints table
 
-''' 
-Note: the subsequent code was written based on formatting of archived JHU data sets, which originally contained US
-state data. The archived data can be found at the following link:
-https://github.com/CSSEGISandData/COVID-19/tree/master/archived_data/archived_time_series.
-'''
+# ''' 
+# Note: the subsequent code was written based on formatting of archived JHU data sets, which originally contained US
+# state data. The archived data can be found at the following link:
+# https://github.com/CSSEGISandData/COVID-19/tree/master/archived_data/archived_time_series.
+# '''
 
 # #Select state data
 # st.subheader('Explore data by US state over time')
