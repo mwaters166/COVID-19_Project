@@ -83,17 +83,18 @@ def round_up(x):
 
 #Create function to change the color range of the heat map
 counter=0
-def change_range_max(range_max=round_up(int(states_daily_df[dataset_type].max()))):
+def change_range_min_max(range_min=0, range_max=round_up(int(states_daily_df[dataset_type].max()))):
     global counter
     counter+=1
     change_range = st.checkbox('Change COVID-19 population range values', key=counter)
     if change_range:
-        min_range= st.slider('min range',0, range_max, value=0, step=int(range_max/200), key=counter+1)
-        max_range= st.slider('max range', 0, range_max, value=range_max, step=int(range_max/200), key=counter+2)
-        range_max=max_range
-        return range_max
+        min_range= st.slider('min range',0, range_max, value=range_min, step=50, key=counter+1)
+        max_range= st.slider('max range', 0, range_max, value=range_max, step=50, key=counter+2)
+        range_max= max_range
+        range_min= min_range
+        return [range_min, range_max]
     else:
-        return range_max
+        return [range_min, range_max]
 
 #Plot COVID-19 cases by US state on a heat map
 st.subheader('Explore data by US state geographically')
@@ -101,10 +102,11 @@ st.subheader('Explore data by US state geographically')
 #Generates a dataframe and figure based on a date given
 def generate_US_map(date='03/27/2020'):
     df=states_daily_df[states_daily_df['date']==date]
+    range_col=change_range_min_max()
     fig = px.choropleth(locations=df['state'], 
                         locationmode="USA-states", color=df[dataset_type],scope="usa",
                         color_continuous_scale=px.colors.sequential.Plasma,
-                        range_color=[0, change_range_max()]
+                        range_color=[range_col[0], range_col[1]]
                        )
                        
     return [fig, df]
@@ -124,6 +126,6 @@ st.plotly_chart(fig) #Plot heatmap
 #Prints the relevant dataframe in streamlit
 st.subheader(f"Top 10 states for {dataset_type} cases as of date: {date_list2[date_slider2]}")
 df2=df[['date', 'state_name', dataset_type]] #gets user-defined dataframe
-df2=df2.sort_values(by=[dataset_type], ascending=False) #sorts dataframe by parameter, e.g. positive test
-df2=df2.reset_index(drop=True)[:10] #gets top 10 
+df2=df2.sort_values(by=[dataset_type], ascending=False)[:10] #sorts dataframe by parameter, e.g. positive test and returns top10
+df2.index=pd.RangeIndex(1,11)
 st.table(df2) #prints table
