@@ -28,8 +28,10 @@ https://raw.githubusercontent.com/mwaters166/COVID-19_Project/master/streamlit-C
  https://raw.githubusercontent.com/mwaters166/COVID-19_Project/master/streamlit-States_COVID-2020-03-27_video_walkthrough.mp4
 
  * Added Jupyter Notebooks (4/3/2020):
-   -'States_Walkthrough_with_Prophet_ML': explores the state data, then looks at using Prophet (https://facebook.github.io/prophet/) to forecast confirmed cases of COVID-19 in NY state. Data source: https://ourworldindata.org/covid-testing
-   -'International_Gov_COVID19_Measures': compares positive cases/testing, and government measures implemented to limit COVID-19 spread in the US and South Korea. Data source: https://www.acaps.org/covid19-government-measures-dataset
+ 
+   -'States_Walkthrough_with_Prophet_ML'(https://github.com/mwaters166/COVID-19_Project/blob/master/States_Walkthrough_with_ProphetML.ipynb): explores the state data, then looks at using Prophet (https://facebook.github.io/prophet/) to forecast confirmed cases of COVID-19 in NY state. Data source: https://ourworldindata.org/covid-testing -MW
+   
+   -'International_Gov_COVID19_Measures'(https://github.com/mwaters166/COVID-19_Project/blob/master/International_Gov_COVID19_Measures.ipynb): compares positive cases, testing, and government measures implemented to limit COVID-19 spread in the US and South Korea. Data source: https://www.acaps.org/covid19-government-measures-dataset -MW
  
 
 
