@@ -6,7 +6,7 @@
 
 ### Summary
 
-* This is a COVID-19 tracking project using data from Johns Hopkins (found here: https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data). You can explore confirmed cases, recovered cases, and mortality data of COVID-19 globally, in individual US states, and in US counties
+* This is a COVID-19 tracking project using data compiled from Johns Hopkins (found here: https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data) and "The Covid Tracking Project" (https://covidtracking.com).  You can explore confirmed cases, recovered cases, and mortality data of COVID-19 globally ('COVID19_app.py'), in individual US states ('States_COVID.py'), and in US counties ('County_COVID19_Data_Explorer.py'). Additional files include Jupyter Notebooks with a bried comparison of actions taken in US and South Korea ('International_Gov_COVID19_Measures.ipynb'), a walkthrough of the state data (with an early projection of COVID-19 cases using Prophet; 'States_Walkthrough_with_Prophet_ML.ipynb'), and a walkthrough of the county data ('COVID19_County_Data_Exploration.ipynb'). 
 
 * All components were written in Python (with some SQL) and can be run in Streamlit: https://www.streamlit.io/
 
