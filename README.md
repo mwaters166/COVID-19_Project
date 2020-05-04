@@ -57,6 +57,8 @@ https://raw.githubusercontent.com/mwaters166/COVID-19_Project/master/streamlit-C
 
 * To run the project, in terminal use the command: 
     streamlit run County_COVID19_Data_Explorer.py
+    
+* Added Jupyter notebook with county data functions: https://github.com/mwaters166/COVID-19_Project/blob/master/County_Files_COVID-19/COVID19_County_Data_Exploration.ipynb
  
 
 
