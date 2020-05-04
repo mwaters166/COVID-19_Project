@@ -60,7 +60,7 @@ https://raw.githubusercontent.com/mwaters166/COVID-19_Project/master/streamlit-C
     
 * Added Jupyter notebook with county data functions: https://github.com/mwaters166/COVID-19_Project/blob/master/County_Files_COVID-19/COVID19_County_Data_Exploration.ipynb
 
-* Added stremalit video walkthrough for 'County_COVID19_Data_Explorer.py': https://github.com/mwaters166/COVID-19_Project/blob/master/County_Files_COVID-19/streamlit-County_COVID19_Data_Explorer-2020-05-04-14-05-59.webm.mp4
+* Added streamlit video walkthrough for 'County_COVID19_Data_Explorer.py': https://github.com/mwaters166/COVID-19_Project/blob/master/County_Files_COVID-19/streamlit-County_COVID19_Data_Explorer-2020-05-04-14-05-59.webm.mp4
  
 
 
