@@ -6,15 +6,15 @@
 
 ### Summary
 
-* This is a COVID-19 tracking project using data compiled from Johns Hopkins (found here: https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data) and "The Covid Tracking Project" (https://covidtracking.com).  You can explore confirmed cases, recovered cases, and mortality data of COVID-19 globally ('COVID19_app.py'), in individual US states ('States_COVID.py'), and in US counties ('County_COVID19_Data_Explorer.py'). Additional files include Jupyter Notebooks with a bried comparison of actions taken in US and South Korea ('International_Gov_COVID19_Measures.ipynb'), a walkthrough of the state data (with an early projection of COVID-19 cases using Prophet; 'States_Walkthrough_with_Prophet_ML.ipynb'), and a walkthrough of the county data ('COVID19_County_Data_Exploration.ipynb'). 
+* This is a COVID-19 tracking project using data compiled from Johns Hopkins (found here: https://github.com/CSSEGISandData/COVID-19/tree/master/csse_covid_19_data) and "The Covid Tracking Project" (https://covidtracking.com).  You can explore confirmed cases, recovered cases, and mortality data of COVID-19 globally ('COVID19_app.py'), in individual US states ('States_COVID.py'), and in US counties ('County_COVID19_Data_Explorer.py'). Additional files include Jupyter Notebooks with a brief comparison of actions taken in US and South Korea ('International_Gov_COVID19_Measures.ipynb'), a walkthrough of the state data (with an early projection of COVID-19 cases using Prophet; 'States_Walkthrough_with_Prophet_ML.ipynb'), and a walkthrough of the county data ('COVID19_County_Data_Exploration.ipynb'). 
 
 * All components were written in Python (with some SQL) and can be run in Streamlit: https://www.streamlit.io/
 
 * You can run a file in streamlit using the command 'streamlit run NAME_OF_FILE.py' from terminal
 
-* There is one streamlit file for each of the global, state, and county-level data: 'COVID19_app.py', 'States_COVID.py', and 'County_COVID19_Data_Explorer.py'
+* There is one streamlit file for each of the global, state, and county-level data: 'COVID19_app.py', 'States_COVID.py', and 'County_COVID19_Data_Explorer.py' respectively
 
-* The 'County_COVID19_Data_Explorer.py' file has dependency on the 'Functions_County_COVID19_Data_Explorer.py' file; both of these files can be found in the 'County_Files_COVID-19' folder. The global and state files are present within the main project folder
+* The 'County_COVID19_Data_Explorer.py' file has dependency on the 'Functions_County_COVID19_Data_Explorer.py' file; both of these files can be found in the 'County_Files_COVID-19' folder. The global and state data files are present within the main project folder
 
 ### Details, Links, and Updates
 
