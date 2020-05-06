@@ -9,10 +9,10 @@ import plotly.express as px
 st.title("US COVID-19 Data Explorer")
 st.write('Project by Michele Waters')
 
-def get_request(param="states/daily"):
-    root_url="https://covidtracking.com/api/"
+def get_request(param='v1/states/daily.json'):
+    root_url='https://covidtracking.com/api/'
     url=root_url+param
-    response=requests.post(url) 
+    response=requests.get(url) 
     records= response.json()
     return records
 
