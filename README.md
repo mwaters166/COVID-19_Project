@@ -67,6 +67,8 @@ https://raw.githubusercontent.com/mwaters166/COVID-19_Project/master/streamlit-C
 * Added Jupyter notebook with a Random Forest model for predicting county COVID-19 Mortality and subsequent analysis (Updated: 5/26/2020): https://github.com/mwaters166/COVID-19_Project/blob/master/County_Files_COVID-19/RandomForest_COVID19_Mortality.ipynb 
 
 * Corresponding cleaned datasets used in 'RandomForest_COVID19_Mortality.ipynb' (Updated: 5/26/2020): https://github.com/mwaters166/COVID-19_Project/blob/master/County_Files_COVID-19/County_RF_csv_files.zip 
+
+* Original sources for raw data used in 'RandomForest_COVID19_Mortality.ipynb': 1) County health rankings: https://www.countyhealthrankings.org/explore-health-rankings/rankings-data-documentation , 2) Global mobility report: https://www.google.com/covid19/mobility/ , 3) ICU Capacity: https://khn.org/news/as-coronavirus-spreads-widely-millions-of-older-americans-live-in-counties-with-no-icu-beds/ , 4) County area: https://www.census.gov/library/publications/2011/compendia/usa-counties-2011.html , 5) Hard to count populations: https://www.censushardtocountmaps2020.us/ , 6) Kinsa fever data api: https://www.kinsahealth.co/enterprise/kinsa-insights/ , 7) JHU COVID-19 Mortality (linked above)
  
 
 
