@@ -44,6 +44,8 @@ https://raw.githubusercontent.com/mwaters166/COVID-19_Project/master/streamlit-C
  
 * View video to see the walkthrough of US state data on streamlit (3/27/2020):
  https://raw.githubusercontent.com/mwaters166/COVID-19_Project/master/streamlit-States_COVID-2020-03-27_video_walkthrough.mp4
+ 
+#### US State COVID-19 Data Analysis
 
 * Added Jupyter Notebooks (4/3/2020):
  
@@ -63,6 +65,8 @@ https://raw.githubusercontent.com/mwaters166/COVID-19_Project/master/streamlit-C
 * Added Jupyter notebook with county data functions: https://github.com/mwaters166/COVID-19_Project/blob/master/County_Files_COVID-19/COVID19_County_Data_Exploration.ipynb
 
 * Added streamlit video walkthrough for 'County_COVID19_Data_Explorer.py': https://github.com/mwaters166/COVID-19_Project/blob/master/County_Files_COVID-19/streamlit-County_COVID19_Data_Explorer-2020-05-04-14-05-59.webm.mp4
+
+#### US County COVID-19 Data Analysis and Prediction
 
 * Added Jupyter notebook with a Random Forest model for predicting county COVID-19 Mortality and subsequent analysis (Updated: 5/26/2020): https://github.com/mwaters166/COVID-19_Project/blob/master/County_Files_COVID-19/RandomForest_COVID19_Mortality.ipynb 
 
